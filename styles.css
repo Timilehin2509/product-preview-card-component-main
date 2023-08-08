@@ -1,0 +1,157 @@
+/*My Custom variables*/
+:root {
+    /*Primary Colors*/
+    --Darkcyan: hsl(158, 36%, 37%);
+    --DarkerCyan: hsl(158, 70%, 15%);
+    --Cream: hsl(30, 38%, 92%);
+    /*Neutral Colors*/
+    --Very_dark_blue: hsl(212, 21%, 14%);
+    --Dark_grayish_blue: hsl(228, 12%, 48%);
+    --White: hsl(0, 0%, 100%);
+    /*Font typefaces*/
+    --Montserrat:  'Montserrat', 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+    --Fraunces: 'Fraunces', 'Georgia', 'Times New Roman', 'Times', 'serif';
+    /*Font weights*/
+    --medium: 500;
+    --bold: 700;
+    /*Root font size*/
+    font-size: 14px;
+}
+/* The CSS reset ~ Josh Comeau; reworked by me*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    font-family: var(--Montserrat);
+}
+body {
+    height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow: auto;
+    background-color: var(--Cream);
+}
+img, picture, video, canvas, svg{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-family: var(--Fraunces);
+    font-weight: var(--bold);
+}
+#root, #__next {
+    isolation: isolate;
+}
+/* main body styling */
+main{
+    display: grid;
+    place-items: center;
+    min-height: 97vh;
+}
+/* flexbox styling*/
+.product_wrapper{
+    overflow: hidden;
+    background-color: var(--White);
+    border-radius: 1rem;
+    margin: 5%;
+    max-width: 600px;
+    height: auto;
+    max-height: 97vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+}
+/*image styling*/
+.product_image{
+    flex-basis: 50%;
+    overflow: hidden;
+}
+/*product description styling*/
+.product_description{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    flex-basis: 50%;
+    padding: 5%;
+    gap: 5%;
+}
+.product_type{
+    color: var(--Dark_grayish_blue);
+    font-weight: var(--medium);
+    letter-spacing: 0.5rem;
+}
+.product_header{
+    color: var(--Very_dark_blue);
+    font-size: 2rem;
+}
+.product_details{
+    color: var(--Dark_grayish_blue);
+}
+.discounted_price{
+    font-family: var(--Fraunces);
+    font-weight: var(--bold);
+    font-size: 2rem;
+    color: var(--Darkcyan);
+}
+.original_price{
+    text-decoration: line-through;
+    color: var(--Dark_grayish_blue);
+}
+/*cart button styling*/
+.cart_adder{
+    display: inline-block;
+    width: 100%;
+    background-color: var(--Darkcyan);
+    color: var(--White); 
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease; 
+}
+.cart_adder:is(:hover, :focus){
+    cursor: pointer;
+    background-color: var(--DarkerCyan);
+}
+.cart_adder img, span{
+    display: inline-block;
+    vertical-align: middle;
+}
+/*screen size change styling*/
+@media screen and (max-width: 610px) {
+    .product_wrapper{
+        flex-flow: column wrap;
+        min-width: 300px;
+        max-width: 350px;
+        min-height: auto;
+    }
+    .product_image img{
+        content: url(./images/image-product-mobile.jpg);
+        max-width: 100%;
+        height: auto;
+    }
+    .product_image{
+        flex-basis: 40%;
+        overflow: hidden;
+    }
+    .product_description{
+        flex-basis: 60%;
+    }
+}
+/* footer */
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
